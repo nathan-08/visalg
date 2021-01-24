@@ -27,11 +27,11 @@ class Chart:
         root.protocol("WM_DELETE_WINDOW", self.__handle_close)
 
     def __handle_close(self):
-        if not self.running:
-            self.root.destroy()
-        else:
+        if self.running:
             self.__animation_time = 0
             self.__wait_and_quit()
+        else:
+            self.root.destroy()
 
     def __wait_and_quit(self):
         if self.running:
