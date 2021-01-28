@@ -68,15 +68,15 @@ class Chart:
                 x0, new_y0, x1, y1)
 
     def __drawrects(self):
-        for n in range(self.width // 10):
+        for n in range(self.width // 20):
         # for n in range(20):
             r = self.canvas.create_rectangle(
-                    n * 10,
+                    n * 20,
                     self.height,
-                    (n * 10) + 6,
+                    (n * 20) + 16,
                     randrange(0, self.height),
                     fill='#000',
-                    activefill='blue',
+                    activefill='red',
                     width=0 # border width
                     )
 
@@ -96,13 +96,13 @@ class Chart:
     def bubblesort(self):
         for i in range(len(self.r_ids) - 1, 0, -1):
             for j in range(i):
-                self.setcolor(j, 'blue')
-                self.setcolor(j+1, 'blue')
+                self.setcolor(j, 'red')
+                self.setcolor(j+1, 'red')
                 h1 = self.getheight(j)
                 h2 = self.getheight(j+1)
                 if h1 > h2:
                     self.swap(j, j+1)
-                self.__wait()
+                self.__wait(1 if self.__animation_time > 0 else 0)
                 self.setcolor(j, '#000')
                 self.setcolor(j+1, '#000')
 
@@ -118,7 +118,7 @@ class Chart:
                 if self.getheight(j) > self.getheight(greatest_idx):
                     self.setcolor(greatest_idx, '#000')
                     greatest_idx = j
-                self.__wait()
+                self.__wait(1 if self.__animation_time > 0 else 0)
                 self.setcolor(j, '#000')
             if i != greatest_idx:
                 self.setcolor(greatest_idx, '#000')
@@ -132,7 +132,7 @@ class Chart:
             cur_pos = i
 
             while cur_pos > 0 and cur_val < self.getheight(cur_pos - 1):
-                self.setcolor(cur_pos, 'blue')
+                self.setcolor(cur_pos, 'red')
                 self.setheight(cur_pos, self.getheight(cur_pos - 1))
                 cur_pos = cur_pos - 1
                 self.setheight(cur_pos, 0)
@@ -206,12 +206,12 @@ class Chart:
         
         while not done:
             while left_mark <= right_mark and self.getheight(left_mark) <= pivot_val:
-                self.setcolor(left_mark, 'blue')
+                self.setcolor(left_mark, 'red')
                 self.__wait()
                 self.setcolor(left_mark, '#000')
                 left_mark = left_mark + 1
             while left_mark <= right_mark and self.getheight(right_mark) >= pivot_val:
-                self.setcolor(right_mark, 'blue')
+                self.setcolor(right_mark, 'red')
                 self.__wait()
                 self.setcolor(right_mark, '#000')
                 right_mark = right_mark - 1
@@ -238,7 +238,7 @@ class Chart:
             cur_val = self.getheight(i)
             cur_pos = i
             while cur_pos >= gap and self.getheight(cur_pos - gap) > cur_val:
-                self.setcolor(cur_pos, 'blue')
+                self.setcolor(cur_pos, 'red')
                 self.setheight(cur_pos, self.getheight(cur_pos - gap))
                 cur_pos = cur_pos - gap
                 self.setheight(cur_pos, 0)

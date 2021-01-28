@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 
 from tkinter import Tk, Canvas, Frame, BOTH, Button, YES, NO, LEFT, RIGHT, BOTTOM, TOP
 from tkinter import CENTER
@@ -29,7 +29,7 @@ def main():
             bd=0)
     canvas.pack(expand=YES, fill=BOTH)
 
-    chart = Chart(canvas, root, 10)
+    chart = Chart(canvas, root, 50)
 
     btn = Button(root, text='reset', command=chart.reset)
     btn2 = Button(root, text='insertion', command=chart.insertionsort)
