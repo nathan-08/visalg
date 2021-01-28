@@ -102,7 +102,7 @@ class Chart:
                 h2 = self.getheight(j+1)
                 if h1 > h2:
                     self.swap(j, j+1)
-                self.__wait(1 if self.__animation_time > 0 else 0)
+                self.__wait()
                 self.setcolor(j, '#000')
                 self.setcolor(j+1, '#000')
 
@@ -118,7 +118,7 @@ class Chart:
                 if self.getheight(j) > self.getheight(greatest_idx):
                     self.setcolor(greatest_idx, '#000')
                     greatest_idx = j
-                self.__wait(1 if self.__animation_time > 0 else 0)
+                self.__wait()
                 self.setcolor(j, '#000')
             if i != greatest_idx:
                 self.setcolor(greatest_idx, '#000')

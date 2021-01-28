@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 
 from tkinter import Tk, Canvas, Frame, BOTH, Button, YES, NO, LEFT, RIGHT, BOTTOM, TOP
 from tkinter import CENTER
